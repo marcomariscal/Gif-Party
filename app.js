@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // after form submission, get the search input and corresponding result from api
   $("#search-form").on(
     "submit",
 
@@ -16,7 +17,7 @@ $(document).ready(function() {
   );
 
   async function getResultFromApi(query) {
-    const baseURL = "http://api.giphy.com/v1/gifs/search";
+    const baseURL = "https://api.giphy.com/v1/gifs/search";
     const apiKey = "YMxmYWXu4cP2KIpBx10vCYHZGT8LNqcj";
     const url = `${baseURL}?q=${query}&api_key=${apiKey}`;
 
@@ -25,10 +26,21 @@ $(document).ready(function() {
         data: { data }
       } = await axios.get(url);
 
-      let imageURL = data[0].url;
-      $("<div>").append($("<img>").attr("src", imageURL));
+      const numResults = data.length;
+      const randIdx = Math.floor(Math.random() * numResults);
+
+      let imageURL = data[randIdx].images.original.url;
+      addImg(imageURL);
     } catch (error) {
       alert("There was an error retrieving your gif!");
     }
   }
+
+  function addImg(imageURL) {
+    $("#img-container").append($("<img>").attr("src", imageURL));
+  }
+
+  $("#remove-button").on("click", function() {
+    $("#img-container").empty();
+  });
 });

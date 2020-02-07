@@ -10,41 +10,41 @@
       crossorigin="anonymous"
     />
   </head>
-  <div class="container">
-    <h1>Giphy Fiesta!</h1>
-    <form id="search-form">
-      <div class="input-group">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Enter Search Term"
-          aria-label="Enter Search Term"
-          aria-describedby="search-input"
-          id="search-input"
-          name="search-input"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-primary"
-            type="submit"
-            id="search-button"
-            value=""
-          >
-            Search Giphy!
-          </button>
-          <button
-            class="btn btn-outline-primary"
-            type="button"
-            id="remove-button"
-          >
-            Remove All Images
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-
   <body>
+    <div class="container mb-3">
+      <h1 class="text-center mt-4 mb-4">GiFiesta!</h1>
+      <form id="search-form">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Search Term"
+            aria-label="Enter Search Term"
+            aria-describedby="search-input"
+            id="search-input"
+            name="search-input"
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-primary"
+              type="submit"
+              id="search-button"
+              value=""
+            >
+              Search Giphy!
+            </button>
+            <button
+              class="btn btn-outline-primary"
+              type="button"
+              id="remove-button"
+            >
+              Remove All Images
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="img-container" class="container"></div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
